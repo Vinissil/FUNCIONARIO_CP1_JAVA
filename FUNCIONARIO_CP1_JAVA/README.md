@@ -9,11 +9,15 @@ Este projeto em Java simula o gerenciamento de funcionários de um restaurante, 
     ├── br
     │   └── com
     │       └── funcionario
+    |           ├──Connection
+    |              ├── ConnectionSQL.java
+    |              └── Integracao.java
+    |           |
     │           ├── exception 
-    │           └── PedidoInvalidoException.java
+    │               └── PedidoInvalidoException.java
     |           |
     │           ├── main
-    │           │   └── Main.java
+    │               └── Main.java
     │           └── model
     │               ├── ControlePonto.java
     │               ├── Funcionario.java
@@ -56,11 +60,7 @@ Inclui também validações como:
 
 | Exceção                             | Quando é lançada |
 |------------------------------------|------------------|
-| `CargoInvalidoException`           | Quando o cargo informado não é "Garçom", "Cozinheiro" ou "Gerente". |
-| `FuncionarioNaoEncontradoException`| Quando o funcionário buscado não é encontrado. |
-| `HorarioInvalidoException`         | Quando o funcionário tenta bater ponto fora do horário permitido. |
 | `PedidoInvalidoException`          | Quando o pedido anotado é nulo ou vazio. |
-| `NotificacaoPedidoInvalido`        | Quando a notificação enviada ao cliente está vazia. |
 
 ---
 
