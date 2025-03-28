@@ -1,6 +1,5 @@
-# 🍽️ Sistema de Funcionários - Restaurante
-
-Este projeto em Java simula o gerenciamento de funcionários de um restaurante, com foco em operações como controle de ponto, execução de tarefas por cargo (Garçom, Cozinheiro, Gerente) e tratamento de erros com exceções personalizadas.
+🍽️ Sistema de Gerenciamento de Funcionários para Restaurante
+Este projeto em Java oferece uma solução completa para o gerenciamento de funcionários em um ambiente de restaurante, incluindo operações como controle de ponto, execução de tarefas específicas por cargo (Garçom, Cozinheiro, Gerente), além de integração com banco de dados e tratamento de exceções personalizadas.
 
 ## 📁 Estrutura do Projeto
 
@@ -26,33 +25,53 @@ Este projeto em Java simula o gerenciamento de funcionários de um restaurante, 
     └── module-info.java
 ```
 
-## 🧠 Descrição das Principais Classes
+📝 Descrição das Principais Classes
+InformacaoFuncionario.java: Classe base que encapsula os dados essenciais de um funcionário, como nome, CPF, idade, cargo, salário, turno e data de admissão. Inclui métodos para cadastro e validação do cargo.
 
-### 📌 `InformacaoFuncionario.java`
-Classe base com os dados do funcionário:
-- Nome, CPF, Idade, Cargo, Salário, Turno, Data de Admissão.
-- Métodos para cadastrar e validar o cargo.
+Funcionario.java: Extende InformacaoFuncionario e adiciona funcionalidades específicas, como a validação da existência de um funcionário no sistema (buscarFuncionario), além de sobrecarga de construtores para flexibilidade na criação de objetos.
 
-### 📌 `Funcionario.java`
-Extende `InformacaoFuncionario` e adiciona:
-- Validação de existência de funcionário (`buscarFuncionario`).
-- Sobrecarga de construtores.
+Garcom.java, Cozinheiro.java, Gerente.java: Classes que representam os diferentes cargos no restaurante, cada uma com métodos específicos às suas funções, como anotarPedido() para o garçom, prepararPedido() para o cozinheiro e emitirRelatorioVendas() para o gerente.
 
-### 📌 `ControlePonto.java`
-Classe responsável pelo controle de jornada:
-- Registro de entrada e saída com horário.
-- Validação de horário permitido (`06:00 às 22:00`).
-- Cálculo de tempo de serviço.
+ControlePonto.java: Gerencia o registro de entrada e saída dos funcionários, validando horários permitidos (entre 06:00 e 22:00) e calculando o tempo de serviço.
 
-### 📌 `Operacao.java`
-Simula as operações específicas de cada cargo:
-- **Garçom**: `anotarPedido()`, `entregarPedido()`.
-- **Cozinheiro**: `prepararPedido()`, `notificarPedidoPronto()`.
-- **Gerente**: `contratarFuncionario()`, `emitirRelatorioVendas()`, `organizarescala()`.
+Operacao.java: Define operações específicas para cada cargo, garantindo que cada função execute apenas as operações pertinentes ao seu papel no restaurante.
 
-Inclui também validações como:
-- Pedido inválido (campo vazio)
-- Notificação vazia
+ConnectionSQL.java: Responsável pela conexão com o banco de dados, utilizando JDBC para estabelecer e gerenciar a comunicação com o banco.
+
+Integracao.java: Contém métodos que interagem com o banco de dados para realizar operações como inserção, atualização, deleção e consulta de dados dos funcionários.
+
+🛠️ Funcionalidades Implementadas
+Gerenciamento de Funcionários: Cadastro, atualização e remoção de funcionários no sistema, com integração direta ao banco de dados.
+
+Controle de Ponto: Registro preciso dos horários de entrada e saída dos funcionários, com validação de horários permitidos e cálculo automático do tempo de serviço.
+
+Operações Específicas por Cargo:
+
+Garçom: Anotar e entregar pedidos.
+
+Cozinheiro: Preparar pedidos e notificar quando prontos.
+
+Gerente: Contratar funcionários, emitir relatórios de vendas e organizar escalas de trabalho.
+
+Tratamento de Exceções Personalizadas: Implementação de exceções específicas, como PedidoInvalidoException, para garantir a integridade e a confiabilidade das operações do sistema.
+
+Integração com Banco de Dados: Utilização de JDBC para conectar e operar diretamente no banco de dados, permitindo persistência e recuperação eficiente dos dados dos funcionários.
+
+🚀 Como Executar o Projeto
+Configuração do Banco de Dados:
+
+Certifique-se de que o banco de dados está configurado corretamente e acessível.
+
+Atualize as credenciais de acesso no arquivo ConnectionSQL.java conforme necessário.
+
+Compilação e Execução:
+
+Compile os arquivos Java utilizando seu ambiente de desenvolvimento preferido ou via linha de comando.
+
+Execute a classe Main.java para iniciar a aplicação.
+
+🧪 Testes
+Testes Unitários: Foram implementados testes unitários para as principais funcionalidades do sistema, garantindo a confiabilidade e a robustez do código.
 
 ---
 
